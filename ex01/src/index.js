@@ -13,7 +13,9 @@ function makeClickHandler(c) {
     i[c].onclick = function() {
         if(i[c].id === 'backSpaceKey') {
             document.getElementById('textArea').value = document.getElementById('textArea').value.replace(/.$/,'');
-        } else {
+        } else if(i[c].id === 'okKey') {
+            document.getElementById('textArea').value += '\n';
+        } else {   
             document.getElementById('textArea').value += this.value.toLowerCase();
        }
     };
