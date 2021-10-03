@@ -1,14 +1,17 @@
+body {
+    padding: 0 33.33% 0 33.33%;
+}
+
 #keyboard {
     display: grid;
     grid-template-columns: repeat(12, [col-start] 1fr);
-    gap: 0px;
-    margin: 0 15rem;
+    height: 30vh;
+    width: 465px;
 }
 
-#text-area {
-    top: 130px;
-    right: 30px;
-    width: 300px;
+#textArea {
+    height: 40vh;
+    width: 465px;
 }
 
 #backSpaceKey {
@@ -37,6 +40,8 @@
 }
 
 .keyboardKeys {
-    background-color: #242124;
-    color: whitesmoke;
+    background-color: #2c282c;
+    color: lightgray;
+    border-radius: 1px;
+    border-color: gray;
 }
