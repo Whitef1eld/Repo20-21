@@ -1,27 +1,26 @@
-function() {
     'use strict';
     var i, c;
     
     function init() {
-        i=document.getElementById('keyboard').getElementsByTagName('input');
-        for(c=0;c<i.length;c++) {
-            if(i[c].type==='button') {
-                i[c].addEventListener('onclick',makeClickHandler(c));
+        i=document.getElementById('keyboard').getElementsByTagName('button');
+        for(c=0; c < i.length; c++) {
+            if(i[c].type === 'button') {
+                i[c].addEventListener('onclick', makeClickHandler(c));
             }
-        }
- 
-        document.getElementById('clear').onclick=function() {
-            document.getElementById('text').value='';
         }
     }
  
     function makeClickHandler(c) {
         i[c].onclick=function() {
-            document.getElementById('text').value+=this.value.toLowerCase();
+            document.getElementById('textArea').value += this.value.toLowerCase();
         }
+    }
+
+    function backSpace() {
+        var string = document.getElementById('textArea').value;
+        document.getElementById('textArea').value = string.substring(0, string.length - 1);
     }
  
     window.addEventListener?
-    window.addEventListener('load',init,false):
-    window.attachEvent('onload',init);
- }
+    window.addEventListener('load', init, false):
+    window.attachEvent('onload', init);
