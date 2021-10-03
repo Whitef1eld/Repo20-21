@@ -1,4 +1,4 @@
-var i, c;
+var i, c, caps = 0;
     
 function init() {
     i = document.getElementById('keyboard').getElementsByTagName('button');
@@ -12,9 +12,17 @@ function init() {
 function makeClickHandler(c) {
     i[c].onclick = function() {
         if(i[c].id === 'backSpaceKey') {
-            document.getElementById('textArea').value = document.getElementById('textArea').value.replace(/.$/,'');
+            document.getElementById('textArea').value = document.getElementById('textArea').value.slice(0, -1);
         } else if(i[c].id === 'okKey') {
             document.getElementById('textArea').value += '\n';
+        }  else if(i[c].id === 'capsLockKey') {
+            if(caps === 0) {
+                caps = 1;
+            } else {
+                caps = 0;
+            }
+        } else if(caps === 1) {
+            document.getElementById('textArea').value += this.value.toUpperCase();
         } else {   
             document.getElementById('textArea').value += this.value.toLowerCase();
        }
