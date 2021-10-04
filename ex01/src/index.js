@@ -1,4 +1,4 @@
-var i, c, caps = 0;
+var i, c, caps = 0, shift = 0;
     
 function init() {
     i = document.getElementById('keyboard').getElementsByTagName('button');
@@ -21,10 +21,20 @@ function makeClickHandler(c) {
             } else {
                 caps = 0;
             }
+        } else if(i[c].id === 'shiftKey') {
+            shift = 1;
         } else if(caps === 1) {
             document.getElementById('textArea').value += this.value.toUpperCase();
+            if(shift === 1) {
+                document.getElementById('textArea').value += this.value.toLowerCase();
+                shift = 0;
+            }
         } else {   
             document.getElementById('textArea').value += this.value.toLowerCase();
+            if(shift === 1) {
+                document.getElementById('textArea').value += this.value.toUpperCase();
+                shift = 0;
+            }
        }
     };
 }
