@@ -41,5 +41,9 @@ function makeClickHandler(c) {
     };
 }
 
+function showAlert() {
+    alert(document.getElementById('textArea').value);
+}
+
 window.addEventListener?
 window.addEventListener('load', init, false) : window.attachEvent('onload', init);
