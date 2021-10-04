@@ -24,16 +24,18 @@ function makeClickHandler(c) {
         } else if(i[c].id === 'shiftKey') {
             shift = 1;
         } else if(caps === 1) {
-            document.getElementById('textArea').value += this.value.toUpperCase();
             if(shift === 1) {
                 document.getElementById('textArea').value += this.value.toLowerCase();
                 shift = 0;
+            } else {
+                document.getElementById('textArea').value += this.value.toUpperCase();
             }
         } else {   
-            document.getElementById('textArea').value += this.value.toLowerCase();
             if(shift === 1) {
                 document.getElementById('textArea').value += this.value.toUpperCase();
                 shift = 0;
+            } else {
+                document.getElementById('textArea').value += this.value.toLowerCase();
             }
        }
     };
